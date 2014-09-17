@@ -51,19 +51,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .state('tab.submit', {
       url: '/submit',
+      abstract: true,
       views: {
         'tab-submit': {
           templateUrl: 'templates/tab-submit.html',
-          controller: 'FriendsCtrl'
+          data: {
+           requiresLogin: true
+          }
+          controller: 'SubmissionsCtrl'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.submission-detail', {
+      url: '/submission/:submissionId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-submissions': {
+          templateUrl: 'templates/submission-detail.html',
+          controller: 'SubmissionDetailCtrl'
         }
       }
     })
