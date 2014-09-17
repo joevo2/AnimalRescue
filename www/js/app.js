@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           templateUrl: 'templates/tab-submit.html',
           data: {
            requiresLogin: true
-          }
+          },
           controller: 'SubmissionsCtrl'
         }
       }
