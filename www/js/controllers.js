@@ -3,8 +3,7 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('SubmissionsCtrl', function($scope,
-  $ionicPopover, Submission) {
+.controller('SubmissionsCtrl', function($scope, Submission) {
   Submission.query(function(response) {
     $scope.submissions = [];
     angular.forEach(response.items, function(item) {
@@ -24,15 +23,6 @@ angular.module('starter.controllers', [])
 
   $scope.addSubmission = function() {
     var submission = new Submission();
-    // Pop up image upload option
-      $ionicPopover.fromTemplateUrl('my-popover.html', {
-        scope: $scope,
-      }).then(function(popover) {
-        $scope.popover = popover;
-      });
-      $scope.openPopover = function($event) {
-        $scope.popover.show($event);
-      };
       // submission.photo = get from code above
       submission.photo = ''; // TODO: get photo from camera
       submission.description = $scope.Description;
@@ -52,8 +42,9 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 });
 
-module.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
 
+//Implementing
+module.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
   $cordovaGeolocation
     .getCurrentPosition()
     .then(function (position) {

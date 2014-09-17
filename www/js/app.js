@@ -87,8 +87,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 })
 
-.controller('PictureCtrl', function($scope, Camera, $ionicPopover) {
-
+.controller('PictureCtrl', function($scope, Camera) {
+  
   $scope.getPhoto = function() {
     Camera.getPicture().then(function(imageURI) {
       console.log(imageURI);
@@ -101,6 +101,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       targetHeight: 320,
       saveToPhotoAlbum: false
     });
-    $scope.popover.hide();
   };
 })

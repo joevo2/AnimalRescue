@@ -1,5 +1,5 @@
 <ion-view title="Rescue Post">
-  <ion-content class='padding'>
+  <ion-content class='padding has-header'>
 
     <!-- Description -->
     <div class="list card">
@@ -7,14 +7,12 @@
         <span class="input-label">Description</span>
         <input type="text" placeholder="Description">
       </label>
-      <a class="item item-text-wrap"
-      ng-controller="PictureCtrl"
-      ng-click="getPhoto()">
+      <a class="item item-text-wrap" ng-controller="PictureCtrl" ng-click="getPhoto()">
         <i class="icon ion-image"></i>&nbsp&nbspTake Photo
         <img ng-src="{{lastPhoto}}" style="max-width: 100%">
       </a>
 
-      <a class="item item-text-wrap" href=''>
+      <a class="item item-text-wrap">
         &nbsp<i class="icon ion-location"></i>&nbsp&nbsp Location
       </a>
     </div>
