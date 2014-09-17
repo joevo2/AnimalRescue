@@ -38,12 +38,3 @@ module.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
     });
 
 })
-
-
-.controller('Geolocal', function GetCountry($scope, $http) {
-   $http.get('http://ipinfo.io/json').
-     success(function(data) {
-       $scope.location = data;
-       $scope.city = 'en';
-   });
- })

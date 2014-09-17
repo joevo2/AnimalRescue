@@ -1,5 +1,5 @@
 <ion-view title="Rescue Post">
-  <ion-content class='padding' scroll='false'>
+  <ion-content class='padding'>
 
     <!-- Description -->
     <div class="list card">
@@ -7,13 +7,15 @@
         <span class="input-label">Description</span>
         <input type="text" placeholder="Description">
       </label>
-      <a class="item item-text-wrap" ng-click="openPopover($event)">
-        <i class="icon ion-image"></i>&nbsp&nbspUpload Image
+      <a class="item item-text-wrap"
+      ng-controller="PictureCtrl"
+      ng-click="getPhoto()">
+        <i class="icon ion-image"></i>&nbsp&nbspTake Photo
         <img ng-src="{{lastPhoto}}" style="max-width: 100%">
       </a>
+
       <a class="item item-text-wrap" href=''>
         &nbsp<i class="icon ion-location"></i>&nbsp&nbsp Location
-        <div ng-controller="Geolocal">Your country: {{city}}</div>
       </a>
     </div>
 
@@ -43,22 +45,3 @@
 
   </ion-content>
 </ion-view>
-
-<script id="my-popover.html" type="text/ng-template">
-  <ion-popover-view ng-controller="PictureCtrl">
-    <ion-content scroll="false">
-      <div class="list">
-
-          <button class="button button-block" ng-click="">
-            <i class="icon ion-image"></i>&nbsp&nbspGallery
-          </button>
-
-          <button class="button button-block" ng-click="getPhoto()">
-            <i class="icon ion-camera"></i>&nbsp&nbspTake Photo
-          </button>
-
-        </label>
-      </div>
-    </ion-content>
-  </ion-popover-view>
-</script>
