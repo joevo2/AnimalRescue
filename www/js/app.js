@@ -51,13 +51,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .state('tab.submit', {
       url: '/submit',
-      abstract: true,
+      //abstract: true,
       views: {
         'tab-submit': {
           templateUrl: 'templates/tab-submit.html',
-          data: {
-           requiresLogin: true
-          },
+          // /data: {
+          //  requiresLogin: true
+          // },
           controller: 'SubmissionsCtrl'
         }
       }
