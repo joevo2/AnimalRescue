@@ -7,7 +7,7 @@
         <span class="input-label">Description</span>
         <input type="text" placeholder="Description">
       </label>
-      <a class="item item-text-wrap" href=''>
+      <a class="item item-text-wrap" ng-click="openPopover($event)">
         <i class="icon ion-image"></i>&nbsp&nbspUpload Image
       </a>
       <a class="item item-text-wrap" href=''>
@@ -41,3 +41,26 @@
 
   </ion-content>
 </ion-view>
+
+<script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-content scroll="false">
+      <div class="list">
+
+          <a class="item">
+            <br><br>
+            <i class="icon ion-image"></i>&nbsp&nbspGallery
+            <br><br><br>
+          </a>
+
+          <a class="item">
+            <br><br>
+            <i class="icon ion-camera"></i>&nbsp&nbspTake Photo
+            <br><br><br><br>
+          </a>
+
+        </label>
+      </div>
+    </ion-content>
+  </ion-popover-view>
+</script>
