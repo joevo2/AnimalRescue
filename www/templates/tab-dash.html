@@ -1,15 +1,27 @@
 <ion-view title="Rescue Feed">
-
-  <ion-content class="padding">
-    <!-- havent implement refresh -->
-    <ion-refresher
-     pulling-text="Pull to refresh..."
-     on-refresh="doRefresh()">
-    </ion-refresher>
-    <ion-list>
-      <ion-item ng-repeat="task in tasks">
-        {{task.title}}
-      </ion-item>
-    </ion-list>
+<body ng-app="todo" ng-controller="TodoCtrl">
+  <ion-content class="">
+    <div class="list">
+      <div class="item item-body">
+        <img class="full-image" src="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg">
+        <p>
+          <a class='user' href=''>Joel</a> Lost kitten beside the road #urgent
+        </p>
+        <p>
+          <a class='location' href=''>Cheras, Kuala Lumpur</a>
+        </p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          5 Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
+</body>
