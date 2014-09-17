@@ -1,5 +1,15 @@
-<ion-view title="Dashboard">
+<ion-view title="Rescue Feed">
+
   <ion-content class="padding">
-    <h1>Dash</h1>
+    <!-- havent implement refresh -->
+    <ion-refresher
+     pulling-text="Pull to refresh..."
+     on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item ng-repeat="task in tasks">
+        {{task.title}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
