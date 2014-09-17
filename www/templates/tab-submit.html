@@ -43,21 +43,17 @@
 </ion-view>
 
 <script id="my-popover.html" type="text/ng-template">
-  <ion-popover-view>
+  <ion-popover-view ng-controller="PictureCtrl">
     <ion-content scroll="false">
       <div class="list">
 
-          <a class="item">
-            <br><br>
+          <button class="button button-block" ng-click="">
             <i class="icon ion-image"></i>&nbsp&nbspGallery
-            <br><br><br>
-          </a>
+          </button>
 
-          <a class="item">
-            <br><br>
+          <button class="button button-block" ng-click="getPhoto()">
             <i class="icon ion-camera"></i>&nbsp&nbspTake Photo
-            <br><br><br><br>
-          </a>
+          </button>
 
         </label>
       </div>

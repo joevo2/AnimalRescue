@@ -3,7 +3,8 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('SubmissionsCtrl', function($scope, Submissions, $ionicPopover) {
+.controller('SubmissionsCtrl', function($scope,
+  $ionicPopover, Submissions) {
   $scope.submissions = Submissions.all();
 
   // Pop up image upload option
@@ -22,8 +23,6 @@ angular.module('starter.controllers', [])
   $scope.$on('$destroy', function() {
     $scope.popover.remove();
   });
-
-
 })
 
 .controller('SubmissionDetailCtrl', function($scope, $stateParams, Submissions) {
