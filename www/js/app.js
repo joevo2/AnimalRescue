@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           // /data: {
           //  requiresLogin: true
           // },
-          controller: 'SubmissionsCtrl'
+          //controller: 'SubmissionsCtrl'
         }
       }
     })
@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .controller('PictureCtrl', function($scope, Camera) {
-  
+
   $scope.getPhoto = function() {
     Camera.getPicture().then(function(imageURI) {
       console.log(imageURI);
