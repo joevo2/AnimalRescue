@@ -1,0 +1,19 @@
+<ion-view title="Account">
+  <ion-content class="padding">
+    <h1>Sign in</h1><br>
+    <label class="item item-input">
+      <span class="input-label">Email</span>
+      <input type="email">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Password</span>
+      <input type="password">
+    </label>
+    <br>
+    <button class="button button-positive">
+      Login
+    </button>
+    <br>
+    <br>New user? Sign up now!<br>
+  </ion-content>
+</ion-view>
