@@ -9,9 +9,11 @@
       </label>
       <a class="item item-text-wrap" ng-click="openPopover($event)">
         <i class="icon ion-image"></i>&nbsp&nbspUpload Image
+        <img ng-src="{{lastPhoto}}" style="max-width: 100%">
       </a>
       <a class="item item-text-wrap" href=''>
         &nbsp<i class="icon ion-location"></i>&nbsp&nbsp Location
+        <div ng-controller="Geolocal">Your country: {{city}}</div>
       </a>
     </div>
 

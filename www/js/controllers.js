@@ -16,13 +16,7 @@ angular.module('starter.controllers', [])
   $scope.openPopover = function($event) {
     $scope.popover.show($event);
   };
-  $scope.closePopover = function() {
-    $scope.popover.hide();
-  };
-  //Cleanup the popover when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.popover.remove();
-  });
+
 })
 
 .controller('SubmissionDetailCtrl', function($scope, $stateParams, Submissions) {
@@ -31,3 +25,25 @@ angular.module('starter.controllers', [])
 
 .controller('AccountCtrl', function($scope) {
 });
+
+module.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
+
+  $cordovaGeolocation
+    .getCurrentPosition()
+    .then(function (position) {
+      var lat  = position.coords.latitude
+      var long = position.coords.longitude
+    }, function(err) {
+      // error
+    });
+
+})
+
+
+.controller('Geolocal', function GetCountry($scope, $http) {
+   $http.get('http://ipinfo.io/json').
+     success(function(data) {
+       $scope.location = data;
+       $scope.city = 'en';
+   });
+ })
