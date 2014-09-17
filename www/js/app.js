@@ -49,11 +49,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.submit', {
+      url: '/submit',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
+        'tab-submit': {
+          templateUrl: 'templates/tab-submit.html',
           controller: 'FriendsCtrl'
         }
       }
