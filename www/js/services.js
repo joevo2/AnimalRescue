@@ -8,10 +8,10 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var submissions = [
-    { id: 0, description: 'Scruff McGruff', photo: '10101010', animal_type: 'cat', creation_date: '20140917' },
-    { id: 0, description: 'Woof Woof', photo: '10101010', animal_type: 'dog', creation_date: '20140917' },
-    { id: 0, description: 'Meow Meow', photo: '10101010', animal_type: 'cat', creation_date: '20140917' },
-    { id: 0, description: 'Meeeeew', photo: '10101010', animal_type: 'cat', creation_date: '20140917' }
+    { id: 0, description: 'Scruff McGruff', photo: '10101010', location: 'Cheras, Kuala Lumpur', animal_type: 'cat', creation_date: '20140917' },
+    { id: 0, description: 'Woof Woof', photo: '10101010', location: 'Ampang, Kuala Lumpur', animal_type: 'dog', creation_date: '20140917' },
+    { id: 0, description: 'Meow Meow', photo: '10101010', location: 'Kuantan, Pahang', animal_type: 'cat', creation_date: '20140917' },
+    { id: 0, description: 'Meeeeew', photo: '10101010', location: 'Batu Mertajam, Pulau Pinang', animal_type: 'cat', creation_date: '20140917' }
   ];
 
   return {
