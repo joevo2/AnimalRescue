@@ -42,3 +42,11 @@ angular.module('starter.services', [])
     }
   }
 }])
+
+.factory('Submission', function($resource) {
+  var Submission = $resource('/_ah/api/submission/v1/submissions/:id', {id: '@id'}, {
+    query: {method: 'GET', isArray: false},
+    update: {method: 'PUT'}
+  });
+  return Submission;
+})
