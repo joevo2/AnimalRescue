@@ -1,22 +1,22 @@
 <ion-view title="Account">
-  <ion-content class="padding" scroll="false">
+  <ion-content class="padding">
     <h1>Sign up</h1><br>
     <label class="item item-input">
-      <span class="input-label" name="email">Email</span>
+      <span class="input-label">Email</span>
       <input type="email">
     </label>
     <label class="item item-input">
-      <span class="input-label" name="pass">Password</span>
+      <span class="input-label">Password</span>
       <input type="password">
     </label>
     <label class="item item-input">
-      <span class="input-label" name="pass_veri">Re-enter password</span>
+      <span class="input-label">Re-enter password</span>
       <input type="password">
     </label>
     <br>
-    <button class="button button-block button-positive">
+    <button class="button button-positive">
       Done!
     </button>
-    Hey, wait! I already a sign up!<br>
+    <br>Already a user? Sign in here!<br>
   </ion-content>
 </ion-view>
