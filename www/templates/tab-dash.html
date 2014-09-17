@@ -1,9 +1,9 @@
 <ion-view title="Rescue Feed">
-<body ng-app="starter" ng-controller="SubmissionsCtrl">
+<body ng-app='starter' ng-controller="DashCtrl">
   <ion-content class="">
-    <div ng-controller="SubmissionsCtrl">
+    <div>
       <ul>
-      <li ng-repeat="submission in submissions">
+      <li ng-controller="SubmissionsCtrl" ng-repeat="submission in submissions">
         <img class="full-image" src={{submission.photo}} />
         <p><b>{{submission.username}}</b> {{submission.description}}</p>
         <p>{{submission.location}} {{submission.creation_date}}</p>
