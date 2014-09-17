@@ -1,26 +1,14 @@
 <ion-view title="Rescue Feed">
-<body>
+<body ng-app="starter" ng-controller="SubmissionsCtrl">
   <ion-content class="">
-    <div class="list">
-      <div class="item item-body">
-        <img class="full-image" src="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg">
-        <p>
-          <a class='user' href=''>Joel</a> Lost kitten beside the road #urgent
-        </p>
-        <p>
-          <a class='location' href=''>Cheras, Kuala Lumpur</a>
-        </p>
-      </div>
-      <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" href="#">
-          <i class="icon ion-chatbox"></i>
-          5 Comment
-        </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-share"></i>
-          Share
-        </a>
-      </div>
+    <div ng-controller="SubmissionsCtrl">
+      <ul>
+      <li ng-repeat="submission in submissions">
+        <img class="full-image" src={{submission.photo}} />
+        <p><b>{{submission.username}}</b> {{submission.description}}</p>
+        <p>{{submission.location}} {{submission.creation_date}}</p>
+      </li>
+    </ul>
     </div>
   </ion-content>
 </ion-view>
