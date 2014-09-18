@@ -4,11 +4,68 @@
     <div>
       <ul>
       <li ng-controller="SubmissionsCtrl" ng-repeat="submission in submissions">
-        <img class="full-image" src={{submission.photo}} />
-        <p><b>{{submission.username}}</b> {{submission.description}}</p>
-        <p>{{submission.location}} {{submission.creation_date}}</p>
+        <img class="full-image" src={{item.photo}} />
+        <p><b>{{item.username}}</b> {{item.description}}</p>
+        <p>{{item.location}} {{item.creation_date}}</p>
       </li>
     </ul>
+    </div>
+
+    <div class="list">
+      <div class="item item-body">
+        <img class="full-image" src="http://i.imgur.com/ftR7XPT.jpg">
+        <p><b>Hanxue</b> Stray cat need help
+          <br>
+        <b>Location</b>, Last Seen 18/9/2014, 0939</p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          5 Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="item item-body">
+        <img class="full-image" src="http://i.imgur.com/LNG2Jbu.jpg">
+        <p><b>Meng Hong</b> lost stray dog wondering in taman cheras
+          <br>
+        <b>Location</b>, Last Seen 12/9/2014, 1329</p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          12Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="item item-body">
+        <img class="full-image" src="http://i.imgur.com/tBRvLq1.jpg">
+        <p><b>Ooi</b> lost dog seen sitting there, waiting for owner
+          <br>
+        <b>Location</b>, Last Seen 14/9/2014, 0339</p>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          23 Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
     </div>
   </ion-content>
 </ion-view>
