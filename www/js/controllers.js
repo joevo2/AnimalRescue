@@ -65,76 +65,29 @@ angular.module('starter.controllers', [])
 
   $scope.addSubmission = function() {
     $scope.item.creation_date = new Date();
+  }
 
-    //Get location
-    var onSuccess = function(position) {
-        $scope.item.location = position.coords.latitude+","+position.coords.longitude;
-    };
+  $scope.locationButton = function() {
+    getLoc($scope);
+  }
+})
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+function getLoc($scope) {
+  //Get location
+  var onSuccess = function(position) {
+      $scope.item.location = position.coords.latitude+","+position.coords.longitude;
+  };
 
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-      }
-    })
-// //Geo location module
-// function getGeo($scope, $cordovaGeolocation) {
-//
-//   $cordovaGeolocation
-//     .getCurrentPosition()
-//     .then(function (position) {
-//       var lat  = position.coords.latitude
-//       var long = position.coords.longitude
-//       $scope.item.location = lat + "," + lang;
-//     }, function(err) {
-//         //error message
-//   });
-//
-//   // begin watching
-//   var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
-//   watch.promise.then(function() { /* Not  used */ },
-//     function(err) {
-//       // An error occurred.
-//     },
-//     function(position) {
-//       $scope.item.location = lat + "," + lang;
-//   });
-//
-//   // clear watch
-//   $cordovaGeolocation.clearWatch(watch.watchID)
-//
-// }
-//
-// //Location using internet
-//  function getCountry($scope, $http) {
-//    $http.get('http://ipinfo.io/json').
-//      success(function(data) {
-//        $scope.location = data;
-//        $scope.country = 'en';
-//        if (data.country != 'FR') $scope.country = "en";
-//    });
-//    $scope.item.location = $scope.country;
-//  }
+  // onError Callback receives a PositionError object
+  //
+  function onError(error) {
+      alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+  }
 
+  navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else {
-//       console.log("something wrong with geo location");
-//     }
-// }
-// function showPosition(position) {
-//     return position.coords.latitude + "," + position.coords.longitude;
-// }
-
-
-
+}
 
 //Push notification module
 module.controller('Push', function($scope, $cordovaPush) {
