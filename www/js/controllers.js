@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller('Submit', function($scope) {
+.controller('Submit', function($scope, $location) {
   $scope.item = { username : '',
                   photo : '',
                   description : '',
@@ -65,11 +65,14 @@ angular.module('starter.controllers', [])
 
   $scope.addSubmission = function() {
     $scope.item.creation_date = new Date();
+    $location.path("/dash");
   }
 
   $scope.locationButton = function() {
     getLoc($scope);
   }
+
+
 })
 
 function getLoc($scope) {
