@@ -60,13 +60,13 @@ angular.module('starter.controllers', [])
                   description : '',
                   location: '',
                   creation_date : '',
-                  animal_type : '',
-                  location : ''};
+                  animal_type : ''};
 
 
   $scope.addSubmission = function() {
     $scope.item.creation_date = new Date();
-    getGeo();
+    //$scope.item.location = getLocation();
+    $scope.item.location = getGeo();
   }
 
   //$scope.getGeo = function($scope, $cordovaGeolocation) {
@@ -82,7 +82,7 @@ function getGeo($scope, $cordovaGeolocation) {
       var lat  = position.coords.latitude
       var long = position.coords.longitude
     }, function(err) {
-      console.log("Geolocation not working")
+      getCountry();
     });
 
   // begin watching
@@ -99,4 +99,25 @@ function getGeo($scope, $cordovaGeolocation) {
   // clear watch
   $cordovaGeolocation.clearWatch(watch.watchID)
 
+}
+
+ function getCountry($scope, $http) {
+   $http.get('http://ipinfo.io/json').
+     success(function(data) {
+       $scope.location = data;
+       $scope.country = 'en';
+       if (data.country != 'FR') $scope.country = "en";
+   });
+   $scope.item.location = $scope.country;
+ }
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log("something wrong with geo location");
+    }
+}
+function showPosition(position) {
+    return position.coords.latitude + "," + position.coords.longitude;
 }
