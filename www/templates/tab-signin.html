@@ -1,19 +1,15 @@
 <ion-view title="Account">
-  <ion-content class="padding" scroll='false'>
-    <h1>Sign in with</h1><br>
-    <div class='item item-list'>
-    <button class="button button-clear button-large button-positive ion-social-facebook">
-    &nbsp;Facebook
-    </button>
-    <br>
-    <button class="button button-clear button-large button-calm ion-social-twitter">
-    &nbsp;Twitter
-    </button>
-    <br>
-    <button class="button button-clear button-large button-assertive ion-social-googleplus">
-    &nbsp;Google+
-    </button>
-  </div>
+  <ion-content class="padding">
+      <script src="https://cdn.auth0.com/w2/auth0-widget-5.2.min.js"></script>
+      <script type="text/javascript">
 
+      var widget = new Auth0Widget({
+        domain:         'animalrescue.auth0.com',
+        clientID:       'pIuGHl4YRA0Xef5UIIVGRgtfJ5xNtPIO',
+        callbackURL:    location.href
+      });                                                                                                       
+      
+    </script>
+    <button ng-click="login()">Login</button>
   </ion-content>
 </ion-view>

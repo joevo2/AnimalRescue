@@ -1,6 +1,9 @@
 {
   "name": "AnimalRescue",
   "private": "true",
+  "dependencies" : {
+    "auth0-angular": "2.2.*"
+  },
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.0-beta.12"
   }
