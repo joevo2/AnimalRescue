@@ -5,6 +5,21 @@
       pulling-text="Pull to refresh..."
       on-refresh="doRefresh()">
     </ion-refresher>
+
+
+    <label class="item item-input item-select">
+      <div class="input-label">
+        City
+      </div>
+      <select>
+        <option>Kuala Lumpur</option>
+        <option>Melaka</option>
+        <option>Penang</option>
+        <option>Johor Bahru</option>
+      </select>
+    </label>
+
+
     <div>
       <ul>
       <li ng-controller="SubmissionsCtrl" ng-repeat="submission in submissions">
