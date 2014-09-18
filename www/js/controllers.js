@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope, auth) {
   $scope.login = function() { 
     console.log('login fired');
-    auth.signin({ popup: true, standalone: true }, 
+    auth.signin({ popup: true, standalone: false },
                   // success handler:
                   function() {}, 
                   // failure handler:
