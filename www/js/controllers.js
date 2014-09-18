@@ -51,7 +51,18 @@ angular.module('starter.controllers', [])
   $scope.submission = Submissions.get($stateParams.submissionId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, auth) {
+  $scope.login = function() { 
+    console.log('login fired');
+    auth.signin({ popup: true, standalone: true }, 
+                  // success handler:
+                  function() {}, 
+                  // failure handler:
+                  function() {
+                    alert("Oops. Something went wrong.");
+                  }
+      ); 
+    }
 })
 
 .controller('Submit', function($scope, $location) {
