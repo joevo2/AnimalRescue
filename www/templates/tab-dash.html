@@ -1,6 +1,10 @@
 <ion-view title="Rescue Feed">
 <body ng-app='starter' ng-controller="DashCtrl">
   <ion-content class="">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
     <div>
       <ul>
       <li ng-controller="SubmissionsCtrl" ng-repeat="submission in submissions">
