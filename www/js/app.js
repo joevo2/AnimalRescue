@@ -77,7 +77,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-account': {
           templateUrl: 'templates/tab-signin.html',
-          controller: 'AccountCtrl'
+          //controller: 'AccountCtrl'
         }
       }
     });
@@ -92,7 +92,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $scope.getPhoto = function() {
     Camera.getPicture().then(function(imageURI) {
       console.log(imageURI);
-      $scope.lastPhoto = imageURI;
+      $scope.item.Photo = imageURI;
     }, function(err) {
       console.err(err);
     }, {

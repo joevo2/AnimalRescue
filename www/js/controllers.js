@@ -3,55 +3,97 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('SubmissionsCtrl', function($scope, Submission) {
-  Submission.query(function(response) {
-    $scope.submissions = [];
-    angular.forEach(response.items, function(item) {
-      var submission = new Submission();
-      submission.username = item.username;
-      submission.description = item.description;
-      submission.id = item.id;
-
-      submission.photo = item.photo;
-      submission.location = item.location; //TODO: code to get location
-      submission.animal_type = item.animal_type;
-      submission.creation_date = item.creation_date;
-      $scope.submissions.push(submission);
-    });
-
-  });
-
-  $scope.addSubmission = function() {
-    var submission = new Submission();
-      // submission.photo = get from code above
-      submission.photo = ''; // TODO: get photo from camera
-      submission.description = $scope.Description;
-      submission.creation_date = new Date();
-      submission.animal_type = $scope.animal_type;
-      submission.location = 'here'; //TODO: code to get location
-      submission.username = $scope.username;
-
-      // Inform user that their submission is saved
-  }
-})
+// .controller('SubmissionsCtrl', function($scope, Submission) {
+//   console.log('DEBUG: SubmissionsCtrl');
+//   Submission.query(function(response) {
+//     $scope.submissions = [];
+//     angular.forEach(response.items, function(item) {
+//       submission.username = item.username;
+//       submission.description = item.description;
+//       submission.id = item.id;
+//       submission.photo = item.photo;
+//       submission.location = item.location; //TODO: code to get location
+//       submission.animal_type = item.animal_type;
+//       submission.creation_date = item.creation_date;
+//       $scope.submissions.push(submission);
+//
+//
+//
+//     });
+//
+//   });
+//
+//   $scope.item = { username : '',
+//                   photo : '',
+//                   description : 'No description.',
+//                   creation_date : '',
+//                   animal_type : 'cat',
+//                   location : ''};
+//
+//   $scope.addSubmission = function() {
+//       console.log($scope.submissions);
+//       var submission = new Submission();
+//
+//       submission.username = 'blah';
+//       submission.photo = item.lastPhoto; // : get photo from camera
+//       submission.description = item.description;
+//       submission.creation_date = new Date();
+//       submission.animal_type = item.animal_type;
+//       submission.location = 'here'; //: code to get location
+//       $scope.submissions.push(submission);
+//
+//
+//       //Inform user that their submission is saved
+//   }
+// })
 
 .controller('SubmissionDetailCtrl', function($scope, $stateParams, Submissions) {
   $scope.submission = Submissions.get($stateParams.submissionId);
 })
 
-.controller('AccountCtrl', function($scope) {
-});
+.controller('AccountCtrl', function($scope, $cordovaGeolocation) {
+})
+
+.controller('Submit', function($scope) {
+  $scope.item = { username : '',
+                  photo : '',
+                  description : 'No description.',
+                  location: '',
+                  creation_date : '',
+                  animal_type : 'cat',
+                  location : ''};
 
 
-//Implementing
-module.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
-  $cordovaGeolocation
-    .getCurrentPosition()
-    .then(function (position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
-    }, function(err) {
-      // error
-    });
+  $scope.addSubmission = function() {
+    $scope.item.location = getGeo();
+    $scope.item.date = new Date();
+  }
+
+  $scope.getGeo = function($scope, $cordovaGeolocation) {
+    $cordovaGeolocation
+      .getCurrentPosition()
+      .then(function (position) {
+        var lat  = position.coords.latitude
+        var long = position.coords.longitude
+      }, function(err) {
+        console.log("Somethign is wrong: ")
+      });
+
+      // begin watching
+      var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
+      watch.promise.then(function() { /* Not  used */ },
+        function(err) {
+          // An error occurred.
+        },
+        function(position) {
+      // Active updates of the position here
+      // position.coords.[ latitude / longitude]
+      });
+
+      // clear watch
+      $cordovaGeolocation.clearWatch(watch.watchID)
+
+      return lat+','+long;
+  }
 
 })
