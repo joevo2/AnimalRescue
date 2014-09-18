@@ -65,59 +65,110 @@ angular.module('starter.controllers', [])
 
   $scope.addSubmission = function() {
     $scope.item.creation_date = new Date();
-    //$scope.item.location = getLocation();
-    $scope.item.location = getGeo();
-  }
 
-  //$scope.getGeo = function($scope, $cordovaGeolocation) {
+    //Get location
+    var onSuccess = function(position) {
+        $scope.item.location = position.coords.latitude+","+position.coords.longitude;
+    };
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      }
+    })
+// //Geo location module
+// function getGeo($scope, $cordovaGeolocation) {
+//
+//   $cordovaGeolocation
+//     .getCurrentPosition()
+//     .then(function (position) {
+//       var lat  = position.coords.latitude
+//       var long = position.coords.longitude
+//       $scope.item.location = lat + "," + lang;
+//     }, function(err) {
+//         //error message
+//   });
+//
+//   // begin watching
+//   var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
+//   watch.promise.then(function() { /* Not  used */ },
+//     function(err) {
+//       // An error occurred.
+//     },
+//     function(position) {
+//       $scope.item.location = lat + "," + lang;
+//   });
+//
+//   // clear watch
+//   $cordovaGeolocation.clearWatch(watch.watchID)
+//
+// }
+//
+// //Location using internet
+//  function getCountry($scope, $http) {
+//    $http.get('http://ipinfo.io/json').
+//      success(function(data) {
+//        $scope.location = data;
+//        $scope.country = 'en';
+//        if (data.country != 'FR') $scope.country = "en";
+//    });
+//    $scope.item.location = $scope.country;
+//  }
 
 
-})
 
-function getGeo($scope, $cordovaGeolocation) {
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//       console.log("something wrong with geo location");
+//     }
+// }
+// function showPosition(position) {
+//     return position.coords.latitude + "," + position.coords.longitude;
+// }
 
-  $cordovaGeolocation
-    .getCurrentPosition()
-    .then(function (position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
-    }, function(err) {
-      getCountry();
-    });
 
-  // begin watching
-  var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
-  watch.promise.then(function() { /* Not  used */ },
-    function(err) {
-      // An error occurred.
-    },
-    function(position) {
-      $scope.item.location = position.coords.latitude + "," +
-                            position.coords.longitude;
+
+
+//Push notification module
+module.controller('Push', function($scope, $cordovaPush) {
+
+  var androidConfig = {
+    "senderID":"replace_with_sender_id",
+    "ecb":"onNotification"
+  };
+
+  var iosConfig = {
+    "badge":"true",
+    "sound":"true",
+    "alert":"true",
+    "ecb":"onNotificationAPN"
+  };
+
+  $cordovaPush.register(config).then(function(result) {
+      // Success!
+  }, function(err) {
+      // An error occured. Show a message to the user
   });
 
-  // clear watch
-  $cordovaGeolocation.clearWatch(watch.watchID)
 
-}
+  $cordovaPush.unregister(options).then(function(result) {
+      // Success!
+  }, function(err) {
+      // An error occured. Show a message to the user
+  });
 
- function getCountry($scope, $http) {
-   $http.get('http://ipinfo.io/json').
-     success(function(data) {
-       $scope.location = data;
-       $scope.country = 'en';
-       if (data.country != 'FR') $scope.country = "en";
-   });
-   $scope.item.location = $scope.country;
- }
+  // iOS only
+  $cordovaPush.setBadgeNumber(2).then(function(result) {
+      // Success!
+  }, function(err) {
+      // An error occured. Show a message to the user
+  });
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("something wrong with geo location");
-    }
-}
-function showPosition(position) {
-    return position.coords.latitude + "," + position.coords.longitude;
-}
+});

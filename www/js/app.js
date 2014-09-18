@@ -77,7 +77,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-account': {
           templateUrl: 'templates/tab-signin.html',
-          //controller: 'AccountCtrl'
+          controller: 'AccountCtrl'
         }
       }
     });
