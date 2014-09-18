@@ -65,8 +65,8 @@ angular.module('starter.controllers', [])
 
 
   $scope.addSubmission = function() {
+    $scope.item.creation_date = new Date();
     getGeo();
-    $scope.item.creation_date = (new Date).toLocaleFormat("%A, %B %e, %Y");
   }
 
   //$scope.getGeo = function($scope, $cordovaGeolocation) {
@@ -82,7 +82,7 @@ function getGeo($scope, $cordovaGeolocation) {
       var lat  = position.coords.latitude
       var long = position.coords.longitude
     }, function(err) {
-      // error
+      console.log("Geolocation not working")
     });
 
   // begin watching
