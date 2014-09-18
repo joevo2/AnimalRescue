@@ -51,49 +51,52 @@ angular.module('starter.controllers', [])
   $scope.submission = Submissions.get($stateParams.submissionId);
 })
 
-.controller('AccountCtrl', function($scope, $cordovaGeolocation) {
+.controller('AccountCtrl', function($scope) {
 })
 
 .controller('Submit', function($scope) {
   $scope.item = { username : '',
                   photo : '',
-                  description : 'No description.',
+                  description : '',
                   location: '',
                   creation_date : '',
-                  animal_type : 'cat',
+                  animal_type : '',
                   location : ''};
 
 
   $scope.addSubmission = function() {
-    $scope.item.location = getGeo();
-    $scope.item.date = new Date();
+    getGeo();
+    $scope.item.creation_date = (new Date).toLocaleFormat("%A, %B %e, %Y");
   }
 
-  $scope.getGeo = function($scope, $cordovaGeolocation) {
-    $cordovaGeolocation
-      .getCurrentPosition()
-      .then(function (position) {
-        var lat  = position.coords.latitude
-        var long = position.coords.longitude
-      }, function(err) {
-        console.log("Somethign is wrong: ")
-      });
+  //$scope.getGeo = function($scope, $cordovaGeolocation) {
 
-      // begin watching
-      var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
-      watch.promise.then(function() { /* Not  used */ },
-        function(err) {
-          // An error occurred.
-        },
-        function(position) {
-      // Active updates of the position here
-      // position.coords.[ latitude / longitude]
-      });
-
-      // clear watch
-      $cordovaGeolocation.clearWatch(watch.watchID)
-
-      return lat+','+long;
-  }
 
 })
+
+function getGeo($scope, $cordovaGeolocation) {
+
+  $cordovaGeolocation
+    .getCurrentPosition()
+    .then(function (position) {
+      var lat  = position.coords.latitude
+      var long = position.coords.longitude
+    }, function(err) {
+      // error
+    });
+
+  // begin watching
+  var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
+  watch.promise.then(function() { /* Not  used */ },
+    function(err) {
+      // An error occurred.
+    },
+    function(position) {
+      $scope.item.location = position.coords.latitude + "," +
+                            position.coords.longitude;
+  });
+
+  // clear watch
+  $cordovaGeolocation.clearWatch(watch.watchID)
+
+}
