@@ -4,41 +4,51 @@
       <form ng-submit="addSubmission()" >
         <!-- Description -->
         <div class="list card">
-
-          <label class="item item-input">
-            <span class="input-label">Description</span>
-            <input type="text" placeholder="Description" ng-model='item.description'>
-          </label>
           <a class="item item-text-wrap" ng-controller="PictureCtrl" ng-click="getPhoto()" ng-modal='item.photo'>
             <i class="icon ion-image"></i>&nbsp&nbspTake Photo
             <img ng-src="{{item.Photo}}" style="max-width: 100%">
           </a>
+
+          <label class="item item-input">
+            <span class="input-label">Description</span>
+            <input type="text" placeholder="Description" ng-model='item.description'[ng-required=""]>
+          </label>
+
 
           <a class="item item-text-wrap" ng-click="locationButton()">
             &nbsp<i class="icon ion-location"></i>&nbsp&nbsp Location {{item.location}}
           </a>
         </div>
 
-        <!-- Cat and Dog radio button -->
-        <div class="list card row">
-          <label class="item item-radio col">
-            <input type="radio" name="group" ng-model='item.animal_type' value='dog'>
-            <div class="item-content">
-              Dog
-            </div>
-            <i class="radio-icon ion-checkmark"></i>
-          </label>
-          <label class="item item-radio col">
-            <input type="radio" name="group" ng-model='item.animal_type' value='cat'>
-            <div class="item-content">
-              Cat
-            </div>
-            <i class="radio-icon ion-checkmark"></i>
-          </label>
-        </div>
+          <!-- Cat and Dog radio button -->
+          <div class="list card row padding">
+            <label class="item item-radio col animal_type item-text-wrap">
+              <input type="radio" name="group" ng-model='item.animal_type' value='dog'>
+              <div class="item-content">
+                Dog
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+            <label class="item item-radio col animal_type item-text-wrap">
+              <input type="radio" name="group" ng-model='item.animal_type' value='cat'>
+              <div class="item-content">
+                Cat
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+
+            <label class="item item-radio col animal_type item-text-wrap">
+              <input type="radio" name="group" ng-model='item.animal_type' value='others'>
+              <div class="item-content">
+                Others
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+          </div>
 
 
-        <button class='button button-full button-positive' ng-submit='submitRescue()'>Submit</button>
+
+          <button class='button button-full button-positive' ng-submit='submitRescue()'>Submit</button>
       </form>
     </div>
   </ion-content>

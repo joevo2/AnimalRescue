@@ -52,16 +52,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope, auth) {
-  $scope.login = function() { 
+  $scope.login = function() {
     console.log('login fired');
     auth.signin({ popup: true, standalone: false },
                   // success handler:
-                  function() {}, 
+                  function() {},
                   // failure handler:
                   function() {
                     alert("Oops. Something went wrong.");
                   }
-      ); 
+      );
     }
 })
 
@@ -93,14 +93,10 @@ function getLoc($scope) {
   };
 
   // onError Callback receives a PositionError object
-  //
   function onError(error) {
-      alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
   }
 
   navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
 }
 
 //Push notification module

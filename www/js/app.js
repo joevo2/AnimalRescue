@@ -54,28 +54,18 @@ angular.module('starter', ['ionic',
 
     .state('tab.submit', {
       url: '/submit',
-      //abstract: true,
       views: {
         'tab-submit': {
           templateUrl: 'templates/tab-submit.html',
-          // /data: {
+          //data: {
           //  requiresLogin: true
-          // },
+          //},
           //controller: 'SubmissionsCtrl'
         }
       }
     })
-    .state('tab.submission-detail', {
-      url: '/submission/:submissionId',
-      views: {
-        'tab-submissions': {
-          templateUrl: 'templates/submission-detail.html',
-          controller: 'SubmissionDetailCtrl'
-        }
-      }
-    })
 
-    .state('tab.account-signin', {
+    .state('tab.account', {
       url: '/account',
       views: {
         'tab-account': {
@@ -83,16 +73,27 @@ angular.module('starter', ['ionic',
           controller: 'AccountCtrl'
         }
       }
-    });
-  authProvider.init({
-    domain: 'aminalrescue.auth0.com',
-    clientID: 'pIuGHl4YRA0Xef5UIIVGRgtfJ5xNtPIO',
-    callbackURL: location.href,
-    loginState: 'login'
-  });
+    })
+
+    .state('tab.about', {
+      url: '/account/about',
+      views: {
+        'tab-about': {
+          templateUrl: 'templates/tab-about.html'
+        }
+      }
+    })
+
+
+    authProvider.init({
+      domain: 'aminalrescue.auth0.com',
+      clientID: 'pIuGHl4YRA0Xef5UIIVGRgtfJ5xNtPIO',
+      callbackURL: location.href,
+      loginState: 'login'
+    })
 
   $httpProvider.interceptors.push('authInterceptor');
-  
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 

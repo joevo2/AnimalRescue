@@ -1,5 +1,5 @@
 <ion-view title="Account">
-  <ion-content class="padding has-head">
+  <ion-content class="has-head">
       <script src="https://cdn.auth0.com/w2/auth0-widget-5.2.min.js"></script>
       <script type="text/javascript">
 
@@ -9,12 +9,24 @@
         callbackURL:    location.href
       });
 
-    </script>
-    <div>
-      </h3>
-    <button ng-click="login()" class="button button-full button-positive">
-      Login
-      </button>
+      </script>
+      <div class='list list-inset'>
+        <button ng-click="login()" class="button button-full button-positive">
+          Login
+        </button>
+
+        <a class='item'>
+          X
+        </a>
+        <a class='item'>
+          Y
+        </a>
+        <a class='item'>
+          Z
+        </a>
+        <a class='item' href="#/account/about">
+          About
+        </a>
       <div>
   </ion-content>
 </ion-view>
