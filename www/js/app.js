@@ -68,14 +68,14 @@ angular.module('starter', ['ionic',
       url: '/account',
       views: {
         'tab-account': {
-          templateUrl: 'templates/tab-signin.html',
+          templateUrl: 'templates/tab-account.html',
           controller: 'AccountCtrl'
         }
       }
     })
 
     .state('tab.about', {
-      url: '/account/about',
+      url: '/about',
       views: {
         'tab-about': {
           templateUrl: 'templates/tab-about.html'
