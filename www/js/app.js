@@ -7,8 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic',
   'starter.controllers',
-  'starter.services',
-  'auth0'])
+  'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,7 +24,7 @@ angular.module('starter', ['ionic',
 })
 
 
-.config(function($stateProvider, authProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -83,17 +82,6 @@ angular.module('starter', ['ionic',
         }
       }
     })
-
-
-    authProvider.init({
-      domain: 'aminalrescue.auth0.com',
-      clientID: 'pIuGHl4YRA0Xef5UIIVGRgtfJ5xNtPIO',
-      callbackURL: location.href,
-      loginState: 'login'
-    })
-
-  $httpProvider.interceptors.push('authInterceptor');
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 

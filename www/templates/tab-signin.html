@@ -1,32 +1,26 @@
 <ion-view title="Account">
   <ion-content class="has-head">
-      <script src="https://cdn.auth0.com/w2/auth0-widget-5.2.min.js"></script>
-      <script type="text/javascript">
+    <div class='list list-inset'>
+      <button ng-click="login()" class="button button-full button-positive">
+        Login
+      </button>
 
-      var widget = new Auth0Widget({
-        domain:         'animalrescue.auth0.com',
-        clientID:       'pIuGHl4YRA0Xef5UIIVGRgtfJ5xNtPIO',
-        callbackURL:    location.href
-      });
+      <a class='item'>
+        X
+      </a>
+      <a class='item'>
+        Y
+      </a>
+      <a class='item' ng-click='share()'>
+        openFB Login
+      </a>
+      <a class='item' href="#/account/about">
+        About
+      </a>
 
-      </script>
-      <div class='list list-inset'>
-        <button ng-click="login()" class="button button-full button-positive">
-          Login
-        </button>
+      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
 
-        <a class='item'>
-          X
-        </a>
-        <a class='item'>
-          Y
-        </a>
-        <a class='item'>
-          Z
-        </a>
-        <a class='item' href="#/account/about">
-          About
-        </a>
-      <div>
+
+      </div>
   </ion-content>
 </ion-view>
