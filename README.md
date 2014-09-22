@@ -19,5 +19,5 @@ for the App user to subsribe.
 
 Current UI
 ----------
-![Rescue Feed](http://i.imgur.com/2caNWDu.png)
-![Rescue Beacon](http://i.imgur.com/dgOIBgv.png)
+![Rescue Feed](http://cl.ly/XeMf/Screen%20Shot%202014-09-22%20at%207.46.42%20PM.png)
+![Rescue Beacon](http://cl.ly/XenT/Screen%20Shot%202014-09-22%20at%207.46.46%20PM.png)
