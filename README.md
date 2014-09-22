@@ -11,8 +11,13 @@ Any app user nearby will immediately receive a push notification
 informing them that there is an animal in need of help nearby
 
 This app shall also serve as a platform
-for non-profit animal rescue organisation 
+for non-profit animal rescue organisation
 to communicate with potential rescuer and adopter
 
 The organisation will be shown as Official Account/Channel
 for the App user to subsribe.  
+
+Current UI
+----------
+![Rescue Feed](http://i.imgur.com/2caNWDu.png)
+![Rescue Beacon](http://i.imgur.com/dgOIBgv.png)

@@ -75,7 +75,7 @@ angular.module('starter', ['ionic',
     })
 
     .state('tab.about', {
-      url: '/about',
+      url: '/account/about',
       views: {
         'tab-about': {
           templateUrl: 'templates/tab-about.html'
