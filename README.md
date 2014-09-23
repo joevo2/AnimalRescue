@@ -17,7 +17,13 @@ to communicate with potential rescuer and adopter
 The organisation will be shown as Official Account/Channel
 for the App user to subsribe.  
 
-Current UI
+Installation
+------------
+First you need to setup [Ionic](http://ionicframework.com/docs/guide/installation.html)
+Then just run it :D
+
+
+Screen Shot
 ----------
 ![Rescue Feed](http://cl.ly/XeMf/Screen%20Shot%202014-09-22%20at%207.46.42%20PM.png)
 ![Rescue Beacon](http://cl.ly/XenT/Screen%20Shot%202014-09-22%20at%207.46.46%20PM.png)

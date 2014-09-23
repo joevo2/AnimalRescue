@@ -24,7 +24,7 @@ angular.module('starter', ['ionic',
 })
 
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -75,19 +75,21 @@ angular.module('starter', ['ionic',
     })
 
     .state('tab.about', {
-      url: '/account/about',
+      url: '/account/tab-about',
       views: {
         'tab-about': {
           templateUrl: 'templates/tab-about.html'
         }
       }
     })
-    
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
 })
 
+
+//Camera access
 .controller('PictureCtrl', function($scope, Camera) {
 
   $scope.getPhoto = function() {
