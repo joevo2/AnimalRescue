@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
-  
+
 })
 
 .controller('Submit', function($scope, $location) {
